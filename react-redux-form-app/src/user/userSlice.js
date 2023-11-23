@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        user: [
+        users: [
             { id: 1, name: 'John Doe' },
             { id: 2, name: 'Jane Doe' },
             { id: 3, name: 'John Smith' },
@@ -12,10 +12,12 @@ const userSlice = createSlice({
     },
     reducers: {
         addUser: (state, action) => {
-            state.user.push(action.payload)
+            state.users.push(action.payload)
         },
         deleteUser: (state, action) => {
-            state.user = state.user.filter((user) => user.id !== action.payload)
+            state.users = state.users.filter(
+                (user) => user.id !== action.payload
+            )
         },
     },
 })
